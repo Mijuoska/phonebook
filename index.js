@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const morgan = require('morgan')
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 let persons = [
     {
@@ -84,6 +84,6 @@ app.delete('/api/persons/:id', (req, res) => {
     res.status(204).end()
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
     console.log('Phonebook is running')
 })
