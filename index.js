@@ -33,10 +33,11 @@ morgan.token('body', (req, res) => {return JSON.stringify(req.body)})
 
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
+app.use(express.static('build'))
 
 
 app.get('/', (req, res) => {
-    res.send('<h1>Phonebook app</h1> <p><a href="/info">See info</a></p><p><a href="/api/persons">See persons</a></p>')
+    res.redirect('/info', 301)
 });
 
 app.get('/info', (req, res) => {
